@@ -1,0 +1,54 @@
+defaults:
+- scope:
+    path: ""
+  values:
+    lang: "en"
+
+- scope:
+    path: ""
+    type: "pages"
+  values:
+    layout: "default"
+
+- scope:
+    path: ""
+    type: "posts"
+  values:
+    layout:     "post"
+    date_fmt:   "%B %d, %Y %R %p"
+    categories: "news"
+    comments:   false
+
+exclude:
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+- Gemfile
+- Gemfile.lock
+- LICENSE
+- new_post.sh
+- node_modules
+- package.json
+- package-lock.json
+- Rakefile
+- README.md
+- site
+- TODO.md
+- yarn.lock
+- yarn-error.log
+
+plugins:
+- jekyll-sitemap
+
+name: "wxFormBuilder"
+url: "https://wxformbuilder.github.io"
+description: "wxFormBuilder Website"
+spdx_license_id: "Apache-2.0"
+
+locale:
+  default: "en"
+
+authors:
+  content: "redtide"
+  web: "redtide"

@@ -1,0 +1,155 @@
+{% assign t  = site.data.locale[page.lang].translation %}
+{%-assign lang_size = site.data.locale.size-%}
+
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<a
+					id="logo-link"
+					class="navbar-brand"
+					href="{{ '/en/' | relative_url }}"
+				>
+					<img
+						class="d-inline-block align-top"
+						src="{{ '/assets/img/logo.png' | relative_url }}"
+						height="32" alt=""
+					> {{ site.name }}
+{%-comment-%}
+TODO: {% if site.logo %}
+					<img src="{{ site.logo | relative_url }}"
+					height="32" class="d-inline-block align-top" alt="">
+			{%-else-%}
+					{{ site.name }}
+			{% endif %}
+{%-endcomment-%}
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-target="#navbarContent"
+					data-toggle="collapse"
+					aria-controls="navbarContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarContent">
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+{% if lang_size > 1 %}
+						<li class="nav-item dropdown">
+							<a
+								id="navbarMenuLang"
+								class="nav-link dropdown-toggle font-weight-bold"
+								data-toggle="dropdown"
+								aria-expanded="false"
+								aria-haspopup="true"
+								href="#"
+							>
+								<img
+									width="16" height="11" style="border:0"
+									id="language-image"
+									src="{{ '/assets/flags/' |
+										append: page.lang | append: '.png' | relative_url }}"
+								>
+							</a>
+							<div
+								id="language-menu"
+								class="dropdown-menu"
+								data-default="{{ site.locale.default }}"
+								aria-labelledby="navbarMenuLang"
+							>
+	{%-assign languages = site.data.locale | sort-%}
+	{% for language in languages %}
+			{% assign path_prefix = '/' | append: language[0] | append: '/' %}
+			<a
+				class="dropdown-item font-weight-bold"
+				data-lang="{{ language[0] }}"
+				href="{{ path_prefix | relative_url }}"
+			>
+				<img
+					src="{{ '/assets/flags/' | append: language[0] |
+						append: '.png' | relative_url }}"
+					width="16" height="11" style="border:0"
+				>
+				{{ language[1].translation.name }}
+			</a>
+	{% endfor %}
+							</div>
+						</li>
+{% endif %}
+{% for item in site.data.locale[page.lang].layout.navigation %}
+	{% if item.type == "dropdown" %}
+		{% assign menu_suffix = item.label |
+			downcase | replace: " ", "_" | replace: "-", "_"
+		%}
+		{% assign item_id = "navbar_" | append: menu_suffix %}
+						<li class="nav-item dropdown">
+							<a
+								id="{{ item_id }}"
+								class="nav-link dropdown-toggle font-weight-bold"
+								data-localize="menu_{{ menu_suffix }}"
+								data-toggle="dropdown"
+								aria-expanded="false"
+								aria-haspopup="true"
+								href="#"
+							>
+								{{ item.label }}
+							</a>
+							<div
+								class="dropdown-menu"
+								aria-labelledby="{{ item_id }}"
+							>
+		{% for subitem in item.pages %}
+			{% if subitem.label == nil %}
+								<div class="dropdown-divider"></div>
+			{% else %}
+				{% assign menu_suffix = subitem.label |
+						downcase | replace: " ", "_" | replace: "-", "_"
+				%}
+				<a
+					class="dropdown-item font-weight-bold"
+					href="{{ subitem.url | relative_url }}"
+				>
+				{%-if subitem.icon_type-%}
+					<i
+						class="{{ subitem.icon_category }} fa-{{ subitem.icon_type }} fa-fw"
+						aria-hidden="true"
+					></i>&nbsp;
+				{%-endif-%}
+					<span data-localize="menu_{{ menu_suffix }}">{{ subitem.label }}</span>
+				</a>
+			{% endif %}
+		{% endfor %}
+							</div>
+	{% else %}
+		{% assign menu_suffix = item.label |
+				downcase | replace: " ", "_" | replace: "-", "_"
+		%}
+						<li class="nav-item">
+							<a
+								class="nav-link font-weight-bold"
+								data-localize="menu_{{ menu_suffix }}"
+								href="{{ item.url | relative_url }}"
+							>
+							{%-if item.icon_type-%}
+							<i
+								class="{{ item.icon_category }} fa-{{ item.icon_type }} fa-fw"
+								aria-hidden="true"
+							></i>&nbsp;
+							{%-endif-%}
+								{{ item.label }}
+							</a>
+	{% endif %}
+						</li>
+{% endfor %}
+						<li class="nav-item">
+							<a
+								class="nav-link font-weight-bold"
+								data-localize="menu_search"
+								href="{{ '/search/' | relative_url }}"
+							>
+							<i class="fas fa-search fa-fw" aria-hidden="true"></i>
+								{{ t.search }}</a>
+						</li>
+					</ul>
+				</div>
+			</nav>

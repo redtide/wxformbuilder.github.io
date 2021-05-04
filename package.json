@@ -1,0 +1,40 @@
+{
+	"name": "wxformbuilder.github.io",
+	"version": "0.1.0",
+	"author": "redtide <redtid3@gmail.com>",
+	"homepage": "https://wxformbuilder.github.io",
+	"scripts": {
+		"css": "node node_modules/npm-run-all/bin/run-s/index.js css-compile css-prefix css-minify",
+		"css-compile": "node node_modules/sass/sass --style=expanded _assets/scss/style.scss assets/css/style.css",
+		"css-prefix": "node node_modules/postcss-cli/bin/postcss --use autoprefixer --replace \"assets/css/*.css\" \"!assets/css/*.min.css\"",
+		"css-minify": "node node_modules/clean-css-cli/bin/cleancss --level 1 --source-map --source-map-inline-sources --output assets/css/style.min.css node_modules/bootstrap/dist/css/bootstrap.min.css assets/css/style.css",
+		"js": "node node_modules/npm-run-all/bin/run-s/index.js js-minify",
+		"js-minify": "node node_modules/uglify-js/bin/uglifyjs --compress --mangle --comments \"/^!/\" --source-map \"includeSources,url=scripts.min.js.map\" --output assets/js/scripts.min.js node_modules/jquery/dist/jquery.min.js node_modules/bootstrap/dist/js/bootstrap.min.js _assets/js/*.js",
+		"dist": "node node_modules/npm-run-all/bin/run-p/index.js css js"
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/wxformbuilder/wxformbuilder.github.io.git"
+	},
+	"bugs": {
+		"url": "https://github.com/wxformbuilder/wxformbuilder.github.io/issues"
+	},
+	"license": "Apache-2.0",
+	"engines": {
+		"node": ">= 10.13.0"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.7.6",
+		"bootstrap": "^4.4.1",
+		"clean-css-cli": "^4.3.0",
+		"jquery": ">=3.5.0",
+		"sass": "^1.25.0",
+		"npm-run-all": "^4.1.5",
+		"popper.js": "^1.16.1",
+		"postcss-cli": "^7.1.0",
+		"uglify-js": "^3.9.1"
+	}
+}

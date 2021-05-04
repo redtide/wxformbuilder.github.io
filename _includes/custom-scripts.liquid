@@ -1,0 +1,16 @@
+<!--
+		<script type="text/javascript" src="{{ '/assets/js/jquery.localize.js' | relative_url }}"></script>
+		<script type="text/javascript" src="{{ '/assets/js/language.js' | relative_url }}"></script>
+-->
+		<script type="text/javascript" src="{{ '/assets/js/anchor.min.js' | relative_url }}"></script>
+    <script>
+      anchors.options.placement = 'left';
+      anchors.add();
+    </script>
+    <script defer type="text/javascript" src="{{ '/assets/js/ekko-lightbox.min.js' | relative_url }}"></script>
+    <script>
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({});
+    });
+    </script>

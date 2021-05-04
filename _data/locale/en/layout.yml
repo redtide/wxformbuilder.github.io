@@ -1,0 +1,73 @@
+navigation:
+- label: "About"
+  type: "dropdown"
+  pages:
+  - label: "Overview"
+    url: "/en/about/"
+    icon_type: "info"
+    icon_category: "fas"
+
+  - label: "Features"
+    url: "/en/features/"
+    icon_type: "info"
+    icon_category: "fas"
+
+  - label: "Screenshots"
+    url: "/en/screenshots/"
+    icon_type: "image"
+    icon_category: "fas"
+
+- label: "Documentation"
+  type: "dropdown"
+  pages:
+  - label: "Build"
+    url: "/en/build/"
+    icon_type: "code"
+    icon_category: "fas"
+
+- label: "Downloads"
+  url: "/en/downloads/"
+  icon_type: "download"
+  icon_category: "fas"
+
+cards:
+- label: "Follow Us"
+  links:
+  - label: "GitHub"
+    url: "https://github.com/wxFormBuilder/"
+    icon_type: "github"
+    icon_category: "fab"
+
+  - label: "IRC"
+    url: https://kiwiirc.com/nextclient/#irc://irc.freenode.net:+6697/#wxFormBuilder
+    icon_type: "hashtag"
+    icon_category: "fas"
+
+  - label: "Feed"
+    url: "/atom.xml"
+    icon_type: "rss"
+    icon_category: "fas"
+
+- label: "Getting Started"
+  links:
+  - label: "Wiki"
+    url: "https://github.com/wxFormBuilder/wxFormBuilder/wiki/"
+    icon_type: "book"
+    icon_category: "fas"
+
+  - label: "Issue Tracker"
+    url: "https://github.com/wxFormBuilder/wxFormBuilder/issues/"
+    icon_type: "bug"
+    icon_category: "fas"
+
+- label: "External Links"
+  links:
+  - label: "Premake"
+    url: "https://premake.github.io/"
+    icon_type: "code"
+    icon_category: "fas"
+
+  - label: "wxPack"
+    url: "https://github.com/rjpcomputing/wxpack/"
+    icon_type: "download"
+    icon_category: "fas"

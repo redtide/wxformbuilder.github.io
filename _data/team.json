@@ -1,0 +1,33 @@
+[
+	{
+		"name": "José Antonio Hurtado",
+		"contributions": "Author"
+	},
+	{
+		"name": "Juan Antonio Ortega",
+		"contributions": "Main Development"
+	},
+	{
+		"name": "Ryan Pusztai",
+		"contributions": "Main Development"
+	},
+	{
+		"name": "Ryan Mulder",
+		"contributions": "Main Development"
+	},
+	{
+		"name": "Michal Bližňák",
+    "url": "https://github.com/MichalBliznak",
+		"contributions": "Main Development, AUI"
+	},
+	{
+		"name": "Jefferson González",
+    "url": "https://github.com/jgmdev",
+		"contributions": "wxPHP code generator"
+	},
+	{
+		"name": "Andrea Zanellato",
+		"url": "https://github.com/redtide",
+		"contributions": "wxWizard, wx2.9+ support, Premake4 build scripts, Website"
+	}
+]
